@@ -25,6 +25,22 @@ The first service in this repo is a **Spring Boot 4 (4.0.3)** based `accounts` m
 - **Endpoints**
   - `GET /sayhello` → returns a simple `"Hi World!"` response (health check / smoke test).
 
+### Branching strategy
+
+This repository uses a **GitFlow‑style** branching model:
+
+- **`main`**: always production‑ready, tagged for releases (for example, `v1.0.0`).
+- **`develop`**: integration branch for upcoming work; all regular work is merged here first.
+- **`feature/*`**: short‑lived branches for new work (for example, `feature/accounts-jpa-entities`), branched from and merged back into `develop`.
+- **`release/*`**: optional branches used to stabilize a release before it goes to `main` (for example, `release/1.0.0`), merged into both `main` and `develop`.
+- **`hotfix/*`**: urgent fixes branched from `main`, then merged into both `main` and `develop`.
+
+Typical workflow:
+
+- New work: `develop` → `feature/...` → PR back to `develop`.
+- Release: `develop` → `release/...` → merge to `main` (and back into `develop`).
+- Hotfix: `main` → `hotfix/...` → merge to `main` and `develop`.
+
 ### Tracking pushed code
 
 High‑level details about pushes to this repository are tracked in the file:
