@@ -2,6 +2,10 @@
 
 This file tracks code that has been pushed to the repository, with brief but meaningful details.
 
+### 2026-02-26 — Commit `c7ea1f8` (branch: `feature/align-audit-and-constants`)
+
+- **Context**: Align loans and cards with accounts: add JPA audit (AuditAwareImpl, @EnableJpaAuditing, entity annotations) and constants (LoansConstants, CardsConstants); remove manual audit fields from service impls. Added `.gitignore` (target/, .idea/).
+
 ### 2026-02-27 — Commit `2a40a6b`
 
 - **Context**: Initial `accounts` microservice added to the repo.
