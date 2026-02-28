@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -38,16 +42,19 @@ public class Card {
     @Column(name = "available_amount", nullable = false)
     private BigDecimal availableAmount;
 
-    @Column(name = "created_at", nullable = false)
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDate createdAt;
 
-    @Column(name = "created_by", nullable = false, length = 20)
+    @CreatedBy
+    @Column(name = "created_by", nullable = false, length = 20, updatable = false)
     private String createdBy;
 
-    @Column(name = "updated_at")
+    @LastModifiedDate
+    @Column(name = "updated_at", insertable = false)
     private LocalDate updatedAt;
 
-    @Column(name = "updated_by", length = 20)
+    @LastModifiedBy
+    @Column(name = "updated_by", length = 20, insertable = false)
     private String updatedBy;
 }
-

@@ -26,8 +26,6 @@ public class LoanServiceImpl implements LoanService {
         loan.setTotalLoan(loanDto.getTotalLoan());
         loan.setAmountPaid(loanDto.getAmountPaid());
         loan.setOutstandingAmount(loanDto.getOutstandingAmount());
-        loan.setCreatedAt(LocalDate.now());
-        loan.setCreatedBy("SYSTEM");
 
         Loan saved = loanRepository.save(loan);
         loanDto.setLoanId(saved.getLoanId());

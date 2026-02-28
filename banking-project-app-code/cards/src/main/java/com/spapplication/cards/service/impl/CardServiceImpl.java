@@ -26,8 +26,6 @@ public class CardServiceImpl implements CardService {
         card.setTotalLimit(cardDto.getTotalLimit());
         card.setAmountUsed(cardDto.getAmountUsed());
         card.setAvailableAmount(cardDto.getAvailableAmount());
-        card.setCreatedAt(LocalDate.now());
-        card.setCreatedBy("SYSTEM");
 
         Card saved = cardRepository.save(card);
         cardDto.setCardId(saved.getCardId());
